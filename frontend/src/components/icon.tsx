@@ -1,6 +1,7 @@
 import {
   BookOpenText,
   Calculator,
+  CaretLeft,
   EggCrack,
   Pencil,
   Trash,
@@ -14,6 +15,7 @@ import { cn } from '#helpers/cn'
 const icons = {
   bookOpenText: BookOpenText,
   calculator: Calculator,
+  caretLeft: CaretLeft,
   eggCrack: EggCrack,
   pencil: Pencil,
   trash: Trash,
