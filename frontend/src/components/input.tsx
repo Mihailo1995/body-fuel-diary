@@ -9,7 +9,10 @@ export const NumberInput = ({ className, ...props }: InputProps) => {
   return (
     <RAInput
       {...props}
-      className={cn('w-20 appearance-none rounded border border-black p-1 outline-none', className)}
+      className={cn(
+        'w-20 appearance-none rounded border border-slate-900 bg-transparent p-1 outline-none',
+        className
+      )}
       // type="number"
       inputMode="numeric"
       pattern="[0-9]+([,\.][0-9]+)?"
@@ -21,7 +24,7 @@ export const TextInput = ({ className, ...props }: InputProps) => {
   return (
     <RAInput
       {...props}
-      className={cn('outline-none', className)}
+      className={cn('bg-transparent outline-none', className)}
     />
   )
 }
