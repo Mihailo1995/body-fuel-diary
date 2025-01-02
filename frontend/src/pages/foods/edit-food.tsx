@@ -35,7 +35,7 @@ const NutritionFactInput = ({ name, label }: NutritionFactInputProps) => {
   )
 }
 
-const EditFoodModal = () => {
+const EditFood = () => {
   const navigate = useNavigate()
   const { foodId } = useParams()
   const { data: food } = useGetFood(foodId)
@@ -114,4 +114,4 @@ const EditFoodModal = () => {
   )
 }
 
-export default EditFoodModal
+export default EditFood

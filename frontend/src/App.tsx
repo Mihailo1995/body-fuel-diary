@@ -6,8 +6,9 @@ import Calculator from '#pages/calculator'
 import Diary from '#pages/diary'
 import Profile from '#pages/profile'
 import Foods from '#pages/foods/foods'
-import AddFoodModal from '#pages/foods/add-food-modal'
-import EditFoodModal from '#pages/foods/edit-food-modal'
+import AddFood from '#pages/foods/add-food'
+import EditFood from '#pages/foods/edit-food'
+import DeleteFoodModal from '#pages/foods/delete-food-modal'
 
 const router = createBrowserRouter([
   {
@@ -15,16 +16,16 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: '/', element: <Calculator /> },
-      {
-        path: 'foods',
-        element: <Foods />,
-        children: [
-          { path: 'add-food', element: <AddFoodModal /> },
-          { path: ':foodId/edit', element: <EditFoodModal /> },
-        ],
-      },
+
+      { path: 'foods', element: <Foods /> },
+      { path: 'foods/add-food', element: <AddFood /> },
+      { path: 'foods/:foodId/edit', element: <EditFood /> },
+      { path: 'foods/:foodId/delete', element: <DeleteFoodModal /> },
+
       { path: 'diary', element: <Diary /> },
+
       { path: 'profile', element: <Profile /> },
+
       { path: '*', element: <h5>Page not found</h5> },
     ],
   },
