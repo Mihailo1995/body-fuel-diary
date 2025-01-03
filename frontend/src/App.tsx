@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       { path: '/', element: <Calculator /> },
 
       { path: 'foods', element: <Foods /> },
-      { path: 'foods/add-food', element: <AddFood /> },
+      { path: 'foods/add', element: <AddFood /> },
       { path: 'foods/:foodId/edit', element: <EditFood /> },
       { path: 'foods/:foodId/delete', element: <DeleteFoodModal /> },
 
