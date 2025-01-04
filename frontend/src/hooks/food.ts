@@ -5,7 +5,7 @@ import { httpClient } from '#services/httpClient'
 
 import { Food } from '#types/food.types'
 
-const FOODS_QUERY_KEY = ['foods']
+const FOODS_QUERY_KEY = 'foods'
 
 export const useGetAllFoods = () => {
   return useQuery({
@@ -18,7 +18,7 @@ export const useGetAllFoods = () => {
 
 export const useGetFood = (foodId: Food['_id']) => {
   return useQuery({
-    queryKey: [FOODS_QUERY_KEY, foodId],
+    queryKey: ['food', foodId],
     queryFn: () => httpClient.get(`/foods/${foodId}`),
     select: (response: AxiosResponse) => response.data.data,
     onError: (error) => console.log('Error:', error),
@@ -36,13 +36,13 @@ export const useCreateFood = () => {
   })
 }
 
-export const useUpdateFood = (id: Food['_id']) => {
+export const useUpdateFood = (foodId: Food['_id']) => {
   const queryClient = useQueryClient()
   return useMutation({
     // put when updating all fields, patch when updating some fields
-    mutationFn: (payload: Food) => httpClient.put(`/foods/${id}`, payload),
+    mutationFn: (payload: Food) => httpClient.put(`/foods/${foodId}`, payload),
     onSuccess: () => {
-      return queryClient.invalidateQueries([FOODS_QUERY_KEY])
+      queryClient.invalidateQueries([FOODS_QUERY_KEY])
     },
     onError: (error) => console.log('Error:', error),
   })
