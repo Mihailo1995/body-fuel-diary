@@ -26,7 +26,7 @@ export const ImportFoodModal = ({ onImportFood }: ImportFoodModalProps) => {
         className="fixed inset-0 flex items-center justify-center bg-black/50"
       >
         <Modal
-          className="relative w-[480px] min-w-[375px] rounded-lg border-2 border-orange-700 bg-white p-5 pt-3"
+          className="relative w-80 rounded-lg border border-slate-900 bg-white p-5 pt-3"
           isOpen={importFoodModal.isOpen}
           onOpenChange={importFoodModal.setIsOpen}
         >
@@ -50,18 +50,16 @@ export const ImportFoodModal = ({ onImportFood }: ImportFoodModalProps) => {
                     <Loader />
                   ) : (
                     foods.map((food: Food) => (
-                      <div
+                      <button
                         key={food._id}
-                        className="flex items-center justify-between gap-4 border-b border-slate-300 p-1 first:border-t"
+                        className="flex items-center justify-between gap-4 border-b border-slate-300 p-1 first:border-t hover:text-orange-700"
+                        onClick={() => onImportFood(food)}
                       >
-                        <button
-                          className="flex-1 truncate whitespace-nowrap text-left hover:text-orange-700"
-                          onClick={() => onImportFood(food)}
-                        >
+                        <span className="flex-1 truncate whitespace-nowrap text-left">
                           {food.title}
-                        </button>
+                        </span>
                         <span className="text-sm">{food.nutritionFacts.calories} kcal</span>
-                      </div>
+                      </button>
                     ))
                   )}
                 </div>
