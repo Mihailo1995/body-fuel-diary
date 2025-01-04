@@ -42,7 +42,7 @@ type FoodFormProps = {
 export const FoodForm = ({ onSubmitFood, submitText, defaultValues }: FoodFormProps) => {
   const navigate = useNavigate()
 
-  // Bug when reopening edited food
+  // Bug when reopening edited food 1st time, old state from RQ
   console.log('defaultValues', defaultValues)
 
   const goBack = () => navigate('/foods')
