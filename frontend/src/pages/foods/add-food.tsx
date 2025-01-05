@@ -12,8 +12,8 @@ const AddFood = () => {
 
   return (
     <Container>
-      <div className="mb-3 flex items-center justify-between text-xl">
-        <h3 className="">Add new food</h3>
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="text-xl">Add new food</h3>
         <button
           className="p-1"
           onClick={() => navigate('/foods')}

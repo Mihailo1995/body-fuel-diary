@@ -33,8 +33,8 @@ export const ImportFoodModal = ({ onImportFood }: ImportFoodModalProps) => {
           <Dialog className="outline-none">
             {({ close }) => (
               <>
-                <div className="mb-2 flex items-center justify-between text-xl">
-                  <h3 className="">Select food to import</h3>
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-xl">Select food to import</h3>
                   <button
                     className="p-1"
                     onClick={close}
