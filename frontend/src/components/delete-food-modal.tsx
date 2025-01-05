@@ -1,5 +1,10 @@
-import { Dialog, DialogTrigger, Modal, ModalOverlay } from 'react-aria-components'
-import { Link, useParams } from 'react-router-dom'
+import {
+  Button as RAButton,
+  Dialog,
+  DialogTrigger,
+  Modal,
+  ModalOverlay,
+} from 'react-aria-components'
 
 import { Button } from '#components/button'
 import { useModal } from '#components/modal'
@@ -7,23 +12,34 @@ import { Icon } from '#components/icon'
 
 import { useDeleteFood } from '#hooks/food'
 
-const DeleteFoodModal = () => {
-  const { foodId } = useParams()
+import { Food } from '#types/food.types'
+
+type DeleteFoodModalProps = {
+  foodId: Food['_id']
+  foodTitle: Food['title']
+}
+
+export const DeleteFoodModal = ({ foodId, foodTitle }: DeleteFoodModalProps) => {
   const deleteFoodModal = useModal()
   const { mutate: deleteFood } = useDeleteFood()
 
   return (
     <DialogTrigger>
-      <Link to={`/foods/${foodId}/delete`}>
-        <Button onPress={deleteFoodModal.open}>Delete food</Button>
-      </Link>
+      <RAButton onPress={deleteFoodModal.open}>
+        <Icon
+          name="trash"
+          size="md"
+          className="cursor-pointer text-red-700"
+          onClick={deleteFoodModal.open}
+        />
+      </RAButton>
 
       <ModalOverlay
         isDismissable
         className="fixed inset-0 flex items-center justify-center bg-black/50"
       >
         <Modal
-          className="relative min-w-80 rounded-lg border-2 border-orange-700 bg-white p-5 pt-3"
+          className="relative w-80 rounded-lg border border-slate-900 bg-white p-5 pt-3"
           isOpen={deleteFoodModal.isOpen}
           onOpenChange={deleteFoodModal.setIsOpen}
         >
@@ -43,7 +59,10 @@ const DeleteFoodModal = () => {
                   </button>
                 </div>
 
-                <p>Are you sure you want to delete this food?</p>
+                <p>
+                  Are you sure you want to delete{' '}
+                  <strong className="font-semibold">{foodTitle}</strong>?
+                </p>
 
                 <div className="flex justify-between pt-3">
                   <Button
@@ -70,5 +89,3 @@ const DeleteFoodModal = () => {
     </DialogTrigger>
   )
 }
-
-export default DeleteFoodModal
