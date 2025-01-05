@@ -8,7 +8,6 @@ import Profile from '#pages/profile'
 import Foods from '#pages/foods/foods'
 import AddFood from '#pages/foods/add-food'
 import EditFood from '#pages/foods/edit-food'
-import DeleteFoodModal from '#pages/foods/delete-food-modal'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +19,6 @@ const router = createBrowserRouter([
       { path: 'foods', element: <Foods /> },
       { path: 'foods/add', element: <AddFood /> },
       { path: 'foods/:foodId/edit', element: <EditFood /> },
-      { path: 'foods/:foodId/delete', element: <DeleteFoodModal /> },
 
       { path: 'diary', element: <Diary /> },
 
