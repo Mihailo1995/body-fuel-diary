@@ -1,0 +1,25 @@
+{
+  "name": "body-fuel-diary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mihailo1995/body-fuel-diary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mihailo1995/body-fuel-diary/issues"
+  },
+  "homepage": "https://github.com/Mihailo1995/body-fuel-diary#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
